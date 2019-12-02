@@ -26,10 +26,10 @@ public class EstadoServiceTest {
 		estadoService.deletarTodos();
 	}
 	
-	@AfterAll
-	public void deletar_registros_depois_dos_testes() {
-		estadoService.deletarTodos();
-	}
+//	@AfterAll
+//	public void deletar_registros_depois_dos_testes() {
+//		estadoService.deletarTodos();
+//	}
 
 	@Test
 	public void deve_criar_um_estado() {
