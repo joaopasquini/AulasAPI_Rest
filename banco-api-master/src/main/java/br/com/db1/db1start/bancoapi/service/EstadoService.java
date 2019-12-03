@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.db1.db1start.bancoapi.entity.Estado;
 import br.com.db1.db1start.bancoapi.repository.EstadoRepository;
+import dto.EstadoFormDTO;
 
 @Service
 public class EstadoService {
@@ -25,10 +26,18 @@ public class EstadoService {
         estado.setNome(novoNome);
         return estadoRepository.save(estado);
     }
+    
+    public Estado atualizar(Long estadoId, EstadoFormDTO alteracoes) {
+        Estado estado = buscarPorId(estadoId);
+        estado.setNome(alteracoes.getNome());
+        return estadoRepository.save(estado);
+    }
 
     public Estado buscarPorId(Long id) {
         return estadoRepository.findById(id).orElseThrow(() -> new RuntimeException("Estado não encontrado"));
     }
+    
+    
 
     public List<Estado> buscarTodos() {
         return estadoRepository.findAll();
